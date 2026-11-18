@@ -1,76 +1,39 @@
 # Calculadora de Hipotenusa
 
-Uma calculadora interativa e elegante que utiliza uma fórmula matemática personalizada para calcular a hipotenusa de um triângulo retângulo, oferecendo uma alternativa ao Teorema de Pitágoras tradicional.
+Aplicação web interativa para calcular a hipotenusa de um triângulo retângulo usando uma fórmula personalizada, com opção de cálculo automático ou entrada manual do coeficiente.
 
-## 🧮 A Fórmula
+## Tecnologias
 
-A calculadora baseia-se na seguinte fórmula personalizada:
+- React
+- TypeScript
+- Vite
+- CSS3 com tema escuro
 
-**C = K × B + A**
-
-Onde o coeficiente **K** é calculado como:
-
-**K = √((A/B)² + 1) - A/B**
-
-* **A**: Cateto menor
-* **B**: Cateto maior
-* **C**: Hipotenusa
-* **K**: Coeficiente de proporção
-
-O usuário tem a opção de inserir o valor de K manualmente ou deixar que o sistema o calcule automaticamente com base nos catetos fornecidos.
-
-## 🚀 Tecnologias Utilizadas
-
-* **Vite** - Ferramenta de build rápida
-* **React** - Biblioteca JavaScript para construção da interface
-* **TypeScript** - Superset tipado de JavaScript
-* **CSS3** - Estilização com variáveis CSS (OKLCH) para um tema escuro moderno
-
-## 💻 Como rodar localmente
-
-Siga os passos abaixo para executar o projeto em sua máquina:
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/gabrielaraujo-eng/gabriel-hypotenuse-calc.git
-   ```
-
-2. Acesse o diretório do projeto:
-   ```bash
-   cd gabriel-hypotenuse-calc
-   ```
-
-3. Instale as dependências:
-   ```bash
-   pnpm install
-   ```
-
-4. Inicie o servidor de desenvolvimento:
-   ```bash
-   pnpm run dev
-   ```
-
-## 🌐 Como fazer o deploy
-
-O projeto está configurado para ser publicado no GitHub Pages. Para fazer o deploy de uma nova versão, execute:
+## Executar localmente
 
 ```bash
-pnpm run deploy
+git clone https://github.com/gabrielaraujo-eng/gabriel-hypotenuse-calc.git
+cd gabriel-hypotenuse-calc
+pnpm install
+pnpm run dev
 ```
 
-## 🔗 Link do Projeto
+Para validar o build de produção:
 
-O site está publicado e pode ser acessado em:
-[https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/](https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/)
+```bash
+pnpm run build
+```
 
-## ✨ Créditos
+## GitHub Pages
 
-Fórmula criada por **Gabriel**.
-Interface e design inspirados em calculadoras científicas modernas.
+O workflow em `.github/workflows/pages.yml` já está pronto para fazer o build e publicar a pasta `dist`. Para ativar a publicação pela primeira vez, abra **Settings → Pages** no repositório e selecione **GitHub Actions** como fonte. Depois disso, cada push na branch `main` fará o deploy automaticamente.
 
+URL esperada: <https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/>
 
-## Publicação
+## Fórmula
 
-Este repositório é publicado automaticamente no GitHub Pages:
+A aplicação usa `C = K × B + A`, com cálculo automático de `K` a partir dos catetos informados.
 
-https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/
+## Créditos
+
+Desenvolvido por Gabriel Lúcio de Araújo.
