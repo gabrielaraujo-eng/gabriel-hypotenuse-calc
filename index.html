@@ -1,34 +1,135 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="lang" content="pt-BR" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <meta name="description" content="Calcule a hipotenusa de um triângulo retângulo pela fórmula C = K × B + A, com coeficiente K automático ou informado manualmente.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
+    <link rel="canonical" href="https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/">
+    <meta property="og:title" content="Calculadora de Hipotenusa | Gabriel Lúcio">
+    <meta property="og:description" content="Calcule a hipotenusa de um triângulo retângulo com K automático ou manual.">
+    <meta property="og:image" content="https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/public/og-share.png">
+    <meta name="author" content="Gabriel Lúcio de Araújo">
     <title>Calculadora de Hipotenusa | Gabriel Lúcio</title>
-    <meta name="description" content="Calcule a hipotenusa de um triângulo retângulo com catetos informados e a fórmula personalizada C = K × B + A. Use o cálculo automático ou informe K manualmente.">
-    <meta name="theme-color" content="#111827" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/" />
-    <meta property="og:title" content="Calculadora de Hipotenusa | Gabriel Lúcio" />
-    <meta property="og:description" content="Calcule a hipotenusa de um triângulo retângulo com a fórmula personalizada C = K × B + A, usando K automático ou manual." />
-    <meta property="og:image" content="https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/og-share.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="675" />
-    <meta property="og:image:alt" content="Prévia da calculadora interativa de hipotenusa" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Calculadora de Hipotenusa | Gabriel Lúcio" />
-    <meta name="twitter:description" content="Calcule a hipotenusa de um triângulo retângulo com a fórmula personalizada C = K × B + A, usando K automático ou manual." />
-    <meta name="twitter:image" content="https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/og-share.png" />
-    <meta name="twitter:image:alt" content="Prévia da calculadora interativa de hipotenusa" />
-    <meta name="author" content="Gabriel Lúcio — gabrielaraujo-eng" />
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="Calculadora de hipotenusa — início">
+          <span class="brand-mark" aria-hidden="true">∠</span>
+          <span>GEOMETRIA <span class="brand-divider">/</span> FERRAMENTA 01</span>
+        </a>
+        <span class="header-note"><span class="status-dot" aria-hidden="true"></span> Calculadora matemática</span>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div class="intro-copy">
+            <p class="eyebrow">CÁLCULO PRECISO · TRIÂNGULOS RETÂNGULOS</p>
+            <h1 id="page-title">Encontre a <span>hipotenusa.</span></h1>
+            <p class="intro-text">Informe os catetos e descubra o comprimento do lado oposto ao ângulo reto, com cálculo automático ou coeficiente personalizado.</p>
+            <div class="equation-chip" aria-label="Fórmula: C igual a K vezes B mais A">
+              <span class="equation-label">FÓRMULA</span>
+              <span class="equation">C = K × B + A</span>
+            </div>
+          </div>
+          <div class="triangle-card" aria-label="Ilustração de um triângulo retângulo">
+            <svg class="triangle-illustration" viewBox="0 0 360 250" role="img" aria-labelledby="triangle-title triangle-desc">
+              <title id="triangle-title">Triângulo retângulo</title>
+              <desc id="triangle-desc">Os lados A e B formam o ângulo reto, enquanto C é a hipotenusa.</desc>
+              <defs>
+                <linearGradient id="triangle-fill" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0" stop-color="#d3ad58" stop-opacity=".17" />
+                  <stop offset="1" stop-color="#d3ad58" stop-opacity=".015" />
+                </linearGradient>
+              </defs>
+              <path class="triangle-fill" d="M54 205H300V44Z" />
+              <path class="triangle-line" d="M54 205H300V44Z" />
+              <path class="right-angle" d="M280 205V185H300" />
+              <text class="triangle-label" x="177" y="233" text-anchor="middle">A · CATETO</text>
+              <text class="triangle-label" x="321" y="128" text-anchor="middle" transform="rotate(-90 321 128)">B · CATETO</text>
+              <text class="triangle-label triangle-label-gold" x="155" y="111" text-anchor="middle" transform="rotate(-33 155 111)">C · HIPOTENUSA</text>
+              <circle class="triangle-point" cx="54" cy="205" r="4" />
+              <circle class="triangle-point" cx="300" cy="205" r="4" />
+              <circle class="triangle-point" cx="300" cy="44" r="4" />
+            </svg>
+            <span class="triangle-caption">A relação entre os lados, visualizada.</span>
+          </div>
+        </section>
+
+        <section class="workspace" aria-label="Calculadora e resultados">
+          <div class="calculator-card">
+            <div class="section-heading">
+              <span class="step-number">01</span>
+              <div>
+                <h2>Insira as medidas</h2>
+                <p>Use valores positivos para os dois catetos.</p>
+              </div>
+            </div>
+            <form id="calculator-form" novalidate>
+              <div class="fields-grid">
+                <div class="field">
+                  <label for="cat-a">Cateto A <span class="field-hint">(menor)</span></label>
+                  <div class="input-wrap"><input id="cat-a" name="cat-a" type="number" inputmode="decimal" min="0.000001" step="any" placeholder="Ex.: 3" required><span class="unit">un.</span></div>
+                </div>
+                <div class="field">
+                  <label for="cat-b">Cateto B <span class="field-hint">(maior)</span></label>
+                  <div class="input-wrap"><input id="cat-b" name="cat-b" type="number" inputmode="decimal" min="0.000001" step="any" placeholder="Ex.: 4" required><span class="unit">un.</span></div>
+                </div>
+              </div>
+              <label class="check-row" for="manual-k">
+                <input id="manual-k" name="manual-k" type="checkbox">
+                <span class="custom-check" aria-hidden="true"></span>
+                <span>Quero informar o valor de K</span>
+              </label>
+              <div class="field manual-field" id="manual-field" hidden>
+                <label for="k-value">Coeficiente K</label>
+                <div class="input-wrap"><input id="k-value" name="k-value" type="number" inputmode="decimal" min="0.000001" step="any" placeholder="Ex.: 0,25"><span class="unit">K</span></div>
+              </div>
+              <p class="form-error" id="form-error" role="alert" hidden></p>
+              <div class="button-row">
+                <button class="button button-primary" type="submit">Calcular hipotenusa <span aria-hidden="true">↗</span></button>
+                <button class="button button-quiet" type="reset">Limpar</button>
+              </div>
+            </form>
+            <details class="formula-details">
+              <summary>Entenda o cálculo <span aria-hidden="true">＋</span></summary>
+              <div class="formula-explanation">
+                <p>O coeficiente automático é calculado a partir dos catetos:</p>
+                <code>K = √((A/B)² + 1) − A/B</code>
+                <p>Depois, a hipotenusa é obtida por <strong>C = K × B + A</strong>, equivalente ao Teorema de Pitágoras.</p>
+              </div>
+            </details>
+          </div>
+
+          <aside class="result-card" id="result-card" aria-labelledby="result-heading" aria-live="polite">
+            <div class="result-topline"><span class="step-number">02</span><span class="result-status" id="result-status">AGUARDANDO MEDIDAS</span></div>
+            <h2 id="result-heading">Seu resultado</h2>
+            <p class="result-intro" id="result-intro">Preencha os dois catetos para visualizar o cálculo.</p>
+            <div class="result-display" id="result-display" hidden>
+              <span class="result-caption">HIPOTENUSA (C)</span>
+              <p class="result-number" id="result-number">0</p>
+              <span class="result-unit">unidades</span>
+            </div>
+            <div class="result-divider"></div>
+            <div class="coefficient-row"><span>Coeficiente K</span><strong id="result-k">—</strong></div>
+            <div class="result-footnote"><span class="info-icon" aria-hidden="true">i</span><span>O valor é arredondado para duas casas decimais.</span></div>
+            <div class="mini-triangle" aria-hidden="true"><span>A</span><i></i><span>B</span><b>C</b></div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Calculadora de Hipotenusa</span>
+        <span>Desenvolvida por Gabriel Lúcio de Araújo</span>
+      </footer>
+    </div>
   </body>
 </html>
