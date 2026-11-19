@@ -34,9 +34,10 @@ function calculateHypotenuse(event) {
   try {
     const a = readPositiveNumber(catAInput, 'o cateto A');
     const b = readPositiveNumber(catBInput, 'o cateto B');
+    const ratio = a / b;
     const k = manualKToggle.checked
       ? readPositiveNumber(kValueInput, 'o coeficiente K')
-      : (Math.hypot(a, b) - a) / b;
+      : Math.sqrt(ratio ** 2 + 1) - ratio;
     const hypotenuse = k * b + a;
 
     if (!Number.isFinite(hypotenuse)) {

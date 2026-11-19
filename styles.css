@@ -23,7 +23,8 @@ button { color: inherit; }
 .page-shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
 .site-header { min-height: 76px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
 .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--text); text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
-.brand-mark { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(211,173,88,.5); color: var(--gold); font-size: 20px; }
+.brand-avatar { display: block; width: 36px; height: 36px; border: 2px solid rgba(211,173,88,.75); border-radius: 50%; object-fit: cover; transition: transform .18s ease, border-color .18s ease; }
+.brand:hover .brand-avatar { transform: scale(1.06); border-color: var(--gold); }
 .brand-divider { color: var(--gold); padding: 0 3px; }
 .header-note { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); }
