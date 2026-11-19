@@ -4,29 +4,17 @@ Aplicação web interativa para calcular a hipotenusa de um triângulo retângul
 
 ## Tecnologias
 
-- React
-- TypeScript
-- Vite
-- CSS3 com tema escuro
+- HTML5 semântico
+- CSS3 responsivo
+- JavaScript nativo (sem framework ou transpilação)
 
 ## Executar localmente
 
-```bash
-git clone https://github.com/gabrielaraujo-eng/gabriel-hypotenuse-calc.git
-cd gabriel-hypotenuse-calc
-pnpm install
-pnpm run dev
-```
-
-Para validar o build de produção:
-
-```bash
-pnpm run build
-```
+Clone o repositório e abra `index.html` no navegador. Não é necessário instalar dependências nem compilar arquivos.
 
 ## GitHub Pages
 
-O workflow em `.github/workflows/pages.yml` já está pronto para fazer o build e publicar a pasta `dist`. Para ativar a publicação pela primeira vez, abra **Settings → Pages** no repositório e selecione **GitHub Actions** como fonte. Depois disso, cada push na branch `main` fará o deploy automaticamente.
+O GitHub Pages publica diretamente os arquivos estáticos da raiz da branch `main`. Cada atualização nessa branch fica disponível após a publicação do Pages.
 
 URL esperada: <https://gabrielaraujo-eng.github.io/gabriel-hypotenuse-calc/>
 
